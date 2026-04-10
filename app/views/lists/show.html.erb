@@ -4,8 +4,13 @@
       <ul>
         <% @list.bookmarks.each do |bookmark| %>
         <li>
+           <% if bookmark.photos.attached? %>
+              <% bookmark.photos.each do |photo| %>
+              <%= cl_image_tag photo.key, height: 300, width: 200, crop: :fill %>
+            <% end %>
+          <% end %>
           <%= link_to bookmark.movie.title, movie_path(bookmark.movie) %>
-          <%= link_to "Remove", list_bookmark_path(bookmark), data: { turbo_method: :delete } %>
+          <%= link_to "Remove", list_bookmark_path(@list, bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure" } %>
         </li>
         <% end %>
       </ul>
