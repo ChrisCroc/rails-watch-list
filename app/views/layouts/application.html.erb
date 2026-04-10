@@ -19,11 +19,20 @@
     <link rel="apple-touch-icon" href="/icon.png">
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
-    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <%= link_to "🍿", root_path, class: "navbar-brand" %>
+        <div class="d-flex gap-3">
+          <%= link_to "My lists", lists_path, class: "nav-link text-white" %>
+          <%= link_to "New list", new_list_path, class: "nav-link text-white" %>
+        </div>
+      </div>
+    </nav>
     <%= yield %>
   </body>
 </html>

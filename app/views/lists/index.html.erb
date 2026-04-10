@@ -1,0 +1,20 @@
+<div class="hero" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=1600');">
+  <div class="hero-content text-center text-white">
+    <h1>Save any kind of movie</h1>
+  </div>
+</div>
+<div class="container my-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>My lists</h2>
+    <%= link_to "Create a movie list", new_list_path, class: "btn btn-warning" %>
+  </div>
+  <div class="row g-3">
+    <% @lists.each do |list| %>
+      <div class="col-4">
+        <%= link_to list_path(list), class: "card-list text-decoration-none" do %>
+          <div class="card-list-name"><%= list.name %></div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="container">
+  <h1>Movies List</h1>
+    <div>
+    <ul>
+      <% @movies.each do |movie| %>
+        <li>
+          <img src="<%= movie.poster_url %>" alt="<%= movie.title %>" style="width: 200px;">
+          <p>Title: <%= link_to movie.title, movie_path(movie) %></p>
+          <p>Rating | <%= movie.rating %></li></p>
+      <% end %>
+      </ul>
+    </div>
+    <div class="footer">
+      <%= link_to "My lists", lists_path %>
+    </div>
+</div>
